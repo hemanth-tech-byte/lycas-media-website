@@ -1,0 +1,538 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  --color-brand-black: #050708;
+  --color-brand-deep-teal: #002D32;
+  --color-brand-dark-green: #063C3A;
+  --color-brand-electric: #00D9A5;
+  --color-brand-turquoise: #00E5D4;
+  --color-brand-light: #F7F8F8;
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #050708;
+  color: #F7F8F8;
+  color-scheme: dark;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050708;
+}
+::-webkit-scrollbar-thumb {
+  background: #002D32;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D9A5;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* ========================================================
+   LIGHT THEME OVERRIDES
+   Rich, high-contrast, polished agency aesthetic in light mode
+   ======================================================== */
+html.light {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Light scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #0D9488;
+}
+
+/* Page base background & main container */
+html.light #root,
+html.light .min-h-screen,
+html.light main,
+html.light .bg-\[\#050708\] {
+  background-color: #F8FAFC !important;
+}
+
+/* Elevated cards, containers, modals & review cards in Light Mode */
+html.light .rounded-2xl.bg-\[\#050708\],
+html.light .rounded-3xl.bg-\[\#050708\],
+html.light [id$="-card"],
+html.light [id*="stat-card"],
+html.light .impact-stat-card,
+html.light #reviews-overview-card,
+html.light #review-spotlight-card,
+html.light .review-grid-card,
+html.light [id*="review-grid-card"],
+html.light #brand-statement-card,
+html.light #hero-floating-list,
+html.light .group.bg-\[\#050708\],
+html.light #services-dropdown,
+html.light #mobile-drawer,
+html.light #showreel-modal-content,
+html.light #case-study-modal-content,
+html.light #article-modal-content,
+html.light #contact-form-container {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Sticky Header on Light Mode */
+html.light #lycas-header {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light #brand-logo-btn .logo-inner-box,
+html.light #brand-logo-btn div div {
+  background-color: #FFFFFF !important;
+}
+
+html.light #brand-logo-btn .logo-letter,
+html.light #brand-logo-btn span.font-black {
+  background: linear-gradient(135deg, #0F172A, #0D9488) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+html.light #brand-logo-btn .brand-title {
+  color: #0F172A !important;
+}
+
+html.light #brand-logo-btn .brand-subtitle {
+  color: #0D9488 !important;
+}
+
+/* ========================================================
+   TYPOGRAPHY ON LIGHT MODE: ENSURE 100% CONTRAST & VISIBILITY
+   ======================================================== */
+html.light .text-white,
+html.light .text-\[\#F7F8F8\] {
+  color: #0F172A !important;
+}
+
+/* Crucial: gray shades have maximum contrast on light cards */
+html.light .text-gray-100 {
+  color: #0F172A !important;
+}
+
+html.light .text-gray-200 {
+  color: #1E293B !important;
+}
+
+html.light .text-gray-300 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+html.light .text-gray-500 {
+  color: #64748B !important;
+}
+
+/* High contrast teal & emerald accents on light surfaces */
+html.light .text-\[\#00E5D4\] {
+  color: #0D9488 !important;
+}
+
+html.light .text-\[\#00D9A5\] {
+  color: #0F766E !important;
+}
+
+/* Gradient headlines on light mode: high-contrast deep teal/emerald */
+html.light .bg-clip-text.text-transparent {
+  background-image: linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #065F46 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Prevent CSS color transition from glitching transparent text */
+.text-transparent,
+.bg-clip-text {
+  transition: none !important;
+}
+
+/* ========================================================
+   EXCEPTIONS: PRESERVE WHITE/LIGHT TEXT ON DARK OVERLAYS & VIDEOS
+   ======================================================== */
+/* Reels cards & video player overlays */
+html.light .aspect-\[9\/16\] .text-white,
+html.light .aspect-\[9\/16\] .text-gray-100,
+html.light .aspect-\[9\/16\] .text-gray-200,
+html.light .aspect-\[9\/16\] .text-gray-300,
+html.light .aspect-\[9\/16\] .text-gray-400,
+html.light [id*="reel"] .text-white,
+html.light [id*="reel"] .text-gray-200,
+html.light [id*="reel"] .text-gray-300,
+html.light [id*="reel"] .text-gray-400,
+html.light [id*="showreel"] .text-white,
+html.light [id*="showreel"] .text-gray-200,
+html.light [id*="showreel"] .text-gray-300,
+html.light [id*="showreel"] .text-gray-400,
+html.light [id*="modal"] .relative.h-60 .text-white,
+html.light [id*="modal"] .relative.h-64 .text-white,
+html.light [id*="modal"] .relative.h-72 .text-white,
+html.light [id*="modal"] .relative.h-80 .text-white,
+html.light [id*="modal"] .relative.aspect-video .text-white,
+html.light .bg-black .text-white,
+html.light .bg-black\/50 .text-white,
+html.light .bg-black\/60 .text-white,
+html.light .bg-black\/70 .text-white,
+html.light .bg-black\/80 .text-white,
+html.light .bg-black\/90 .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Preserve bright cyan and emerald accents in video/reel overlays */
+html.light .aspect-\[9\/16\] .text-\[\#00E5D4\],
+html.light [id*="reel"] .text-\[\#00E5D4\] {
+  color: #00E5D4 !important;
+}
+
+html.light .aspect-\[9\/16\] .text-\[\#00D9A5\],
+html.light [id*="reel"] .text-\[\#00D9A5\] {
+  color: #00D9A5 !important;
+}
+
+/* Targeted keep-white system for overlays, badges, and dark banners */
+html.light .keep-white,
+html.light .keep-white h1,
+html.light .keep-white h2,
+html.light .keep-white h3,
+html.light .keep-white h4,
+html.light .keep-white .text-white,
+html.light [class*="keep-white"] .text-white {
+  color: #FFFFFF !important;
+}
+
+html.light .keep-white .text-gray-100,
+html.light [class*="keep-white"] .text-gray-100 {
+  color: #F8FAFC !important;
+}
+
+html.light .keep-white .text-gray-200,
+html.light [class*="keep-white"] .text-gray-200 {
+  color: #F1F5F9 !important;
+}
+
+html.light .keep-white .text-gray-300,
+html.light [class*="keep-white"] .text-gray-300 {
+  color: #CBD5E1 !important;
+}
+
+html.light .keep-white .text-gray-400,
+html.light [class*="keep-white"] .text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+html.light .keep-white .text-\[\#00E5D4\],
+html.light [class*="keep-white"] .text-\[\#00E5D4\] {
+  color: #00E5D4 !important;
+}
+
+html.light .keep-white .text-\[\#00D9A5\],
+html.light [class*="keep-white"] .text-\[\#00D9A5\] {
+  color: #00D9A5 !important;
+}
+
+/* Hero Floating list in Light Mode */
+html.light #hero-floating-list {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light #hero-floating-list .text-white {
+  color: #0F172A !important;
+}
+
+html.light #hero-floating-list .text-\[\#00D9A5\] {
+  color: #0D9488 !important;
+}
+
+/* Floating bottom badge on Hero Showcase */
+html.light #hero-workspace-showcase .absolute.-bottom-5 {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 8px 25px -4px rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light #hero-workspace-showcase .absolute.-bottom-5 .text-white {
+  color: #0F172A !important;
+}
+
+html.light #hero-workspace-showcase .absolute.-bottom-5 .text-\[\#00E5D4\] {
+  color: #0D9488 !important;
+}
+
+/* Reviews thumbnail buttons on Light Mode */
+html.light #reviews-section button.rounded-xl,
+html.light [id*="reviews"] button.rounded-xl {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light #reviews-section button.rounded-xl .text-white,
+html.light [id*="reviews"] button.rounded-xl .text-white {
+  color: #0F172A !important;
+}
+
+html.light #reviews-section button.rounded-xl .text-gray-400,
+html.light [id*="reviews"] button.rounded-xl .text-gray-400 {
+  color: #64748B !important;
+}
+
+/* Conversion CTA dark green/teal banner preservation */
+html.light #conversion-cta-section > div > div {
+  background: linear-gradient(135deg, #002D32 0%, #063C3A 50%, #001A1D 100%) !important;
+  border-color: rgba(0, 229, 212, 0.4) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 45, 50, 0.3) !important;
+}
+
+html.light #conversion-cta-section h2,
+html.light #conversion-cta-section h2.text-white,
+html.light #conversion-cta-section h2 span.text-white {
+  color: #FFFFFF !important;
+}
+
+html.light #conversion-cta-section p,
+html.light #conversion-cta-section p.text-gray-300 {
+  color: #E2E8F0 !important;
+}
+
+html.light #conversion-cta-section span.text-\[\#00E5D4\] {
+  color: #00E5D4 !important;
+}
+
+html.light #conversion-cta-section .text-\[\#00D9A5\] {
+  color: #00D9A5 !important;
+}
+
+/* About page bottom CTA banner preservation */
+html.light #about-cta-banner {
+  background: linear-gradient(135deg, #002D32 0%, #063C3A 100%) !important;
+  border-color: rgba(0, 229, 212, 0.4) !important;
+}
+
+html.light #about-cta-banner h3,
+html.light #about-cta-banner h3.text-white {
+  color: #FFFFFF !important;
+}
+
+html.light #about-cta-banner p,
+html.light #about-cta-banner p.text-gray-300 {
+  color: #E2E8F0 !important;
+}
+
+/* Action buttons with vibrant gradients must keep dark text */
+html.light button.bg-gradient-to-r,
+html.light button.bg-\[\#00D9A5\],
+html.light button.bg-\[\#00E5D4\],
+html.light #nav-cta-btn,
+html.light #cta-build-together-btn {
+  color: #050708 !important;
+}
+
+html.light button.bg-gradient-to-r span,
+html.light button.bg-\[\#00D9A5\] span,
+html.light button.bg-\[\#00E5D4\] span,
+html.light #nav-cta-btn span,
+html.light #cta-build-together-btn span {
+  color: #050708 !important;
+}
+
+html.light button.bg-gradient-to-r svg,
+html.light button.bg-\[\#00D9A5\] svg,
+html.light button.bg-\[\#00E5D4\] svg,
+html.light #nav-cta-btn svg,
+html.light #cta-build-together-btn svg {
+  color: #050708 !important;
+}
+
+/* Hero Primary Watch Showreel Button in light mode */
+html.light #hero-watch-showreel-btn {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light #hero-watch-showreel-btn:hover {
+  background-color: #0D9488 !important;
+  color: #FFFFFF !important;
+}
+
+html.light #hero-watch-showreel-btn span {
+  color: #FFFFFF !important;
+}
+
+html.light #hero-watch-showreel-btn div {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+html.light #hero-watch-showreel-btn div svg {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* Hero Secondary Consultation Button in light mode */
+html.light #hero-book-consultation-btn {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light #hero-book-consultation-btn:hover {
+  background-color: #F1F5F9 !important;
+  border-color: #0D9488 !important;
+}
+
+html.light #hero-book-consultation-btn span {
+  color: #0F172A !important;
+}
+
+/* Borders on Light Mode */
+html.light .border-\[\#002D32\],
+html.light .border-\[\#002D32\]\/40,
+html.light .border-\[\#002D32\]\/50,
+html.light .border-\[\#002D32\]\/60,
+html.light .border-\[\#002D32\]\/80 {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .border-\[\#00E5D4\]\/30,
+html.light .border-\[\#00E5D4\]\/40,
+html.light .border-\[\#00E5D4\]\/50 {
+  border-color: rgba(13, 148, 136, 0.35) !important;
+}
+
+/* Subtle surfaces, pills, badges on Light Mode */
+html.light .bg-\[\#002D32\],
+html.light .bg-\[\#002D32\]\/10,
+html.light .bg-\[\#002D32\]\/20,
+html.light .bg-\[\#002D32\]\/30,
+html.light .bg-\[\#002D32\]\/40,
+html.light .bg-\[\#002D32\]\/50,
+html.light .bg-\[\#002D32\]\/60,
+html.light .bg-\[\#002D32\]\/80,
+html.light .bg-\[\#002D32\]\/90 {
+  background-color: #F1F5F9 !important;
+}
+
+html.light #podcast-volume-pill {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light #podcast-volume-pill button {
+  color: #334155 !important;
+}
+
+html.light #podcast-volume-pill button:hover {
+  color: #0F172A !important;
+}
+
+html.light .hover\:bg-\[\#002D32\]:hover,
+html.light .hover\:bg-\[\#002D32\]\/60:hover,
+html.light .hover\:bg-\[\#002D32\]\/80:hover {
+  background-color: #E2E8F0 !important;
+}
+
+html.light .hover\:bg-white\/5:hover,
+html.light .hover\:bg-white\/10:hover {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: #0F172A !important;
+}
+
+/* Form inputs & selects on Light Mode */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #0D9488 !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15) !important;
+}
+
+/* Modal overlays in light mode */
+html.light #showreel-modal-overlay,
+html.light [id$="-modal-overlay"],
+html.light [id*="modal-overlay"] {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+}
+
+/* Footer on Light Mode */
+html.light #lycas-footer {
+  background-color: #F1F5F9 !important;
+  border-top-color: #E2E8F0 !important;
+}
+
+html.light #lycas-footer .text-white {
+  color: #0F172A !important;
+}
+
+html.light #lycas-footer .w-full.h-full.bg-\[\#050708\] {
+  background-color: #FFFFFF !important;
+}
+
+html.light #lycas-footer .w-9.h-9.rounded-full {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #334155 !important;
+}
+
+html.light #lycas-footer .w-9.h-9.rounded-full:hover {
+  border-color: #0D9488 !important;
+  color: #0D9488 !important;
+}
+
+/* Smooth universal transition for theme changing */
+*, *::before, *::after {
+  transition-property: background-color, border-color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+

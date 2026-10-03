@@ -1,0 +1,65 @@
+import { PodcastEpisode } from '../types';
+
+export const PODCAST_EPISODES: PodcastEpisode[] = [
+  {
+    id: 'ep-01',
+    episodeNumber: 24,
+    title: 'How to Build an Unbreakable Brand Moat in the Age of AI',
+    guest: 'Kabir Singhania',
+    guestRole: 'Founder & CEO, NeuralScale',
+    duration: '52:18',
+    date: 'Sep 12, 2026',
+    description:
+      'In this deep dive, Kabir unpacks why human connection, authentic point of view, and unscripted storytelling are the only defensible moats when commoditized AI content floods the web.',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    thumbnail: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
+    featured: true,
+    topics: ['Brand Defensibility', 'AI & Media', 'Founder Storytelling', 'Venture Growth'],
+  },
+  {
+    id: 'ep-02',
+    episodeNumber: 23,
+    title: 'From Zero to $50M GMV: Creative-Led Meta Performance',
+    guest: 'Ananya Sharma',
+    guestRole: 'Head of Growth, Aura D2C',
+    duration: '44:30',
+    date: 'Aug 29, 2026',
+    description:
+      'Ananya breaks down the shift from media-buying hacks to creative diversity. How 50+ modular video variations generated a 4.5x blended ROAS during peak season.',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    featured: true,
+    topics: ['Meta Performance', 'Creative Testing', 'E-commerce Scaling', 'Unit Economics'],
+  },
+  {
+    id: 'ep-03',
+    episodeNumber: 22,
+    title: 'The Psychology of High-Retention Video Hooks',
+    guest: 'Vikram Mehta',
+    guestRole: 'Film Director & Creative Strategist',
+    duration: '38:15',
+    date: 'Aug 14, 2026',
+    description:
+      'Why the first 1.8 seconds of your reel dictate whether someone buys or scrolls. Vikram demonstrates micro-pacing, pattern interrupts, and acoustic triggers.',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    thumbnail: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    featured: false,
+    topics: ['Micro-Pacing', 'Video Editing', 'Short-form Retention', 'Viral Mechanics'],
+  },
+  {
+    id: 'ep-04',
+    episodeNumber: 21,
+    title: 'Building a Category King: The Playbook for B2B Founders',
+    guest: 'Devika Ray',
+    guestRole: 'Partner, Catalyst Horizons',
+    duration: '61:04',
+    date: 'Jul 28, 2026',
+    description:
+      'Devika shares real boardroom insights on why enterprise buyers award 3x higher contract values to brands with distinct media presences and thought leadership.',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+    featured: false,
+    topics: ['B2B Enterprise', 'Category Creation', 'Executive Branding', 'Sales Velocity'],
+  },
+];

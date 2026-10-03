@@ -1,0 +1,6 @@
+{
+  "name": "Lycas Media Space",
+  "description": "Lycas Media Space helps ambitious businesses grow through strategy, content, podcasting, video production, digital marketing and high-performing websites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
